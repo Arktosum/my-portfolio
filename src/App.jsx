@@ -34,9 +34,18 @@ function App() {
               Arktosum
             </div>
             
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Arktosum. All rights reserved.
-            </p>
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-gray-500 text-sm">
+                © {new Date().getFullYear()} Arktosum. All rights reserved.
+              </p>
+              <a href="https://hits.sh/arktosum-portfolio.vercel.app/" target="_blank" rel="noreferrer">
+                <img 
+                  src="https://hits.sh/arktosum-portfolio.vercel.app.svg?style=for-the-badge&label=VISITORS&color=9333ea&labelColor=1a1a2e" 
+                  alt="Visitor Count" 
+                  className="opacity-50 hover:opacity-100 transition-opacity duration-300 rounded"
+                />
+              </a>
+            </div>
             
             <div className="flex items-center gap-4">
               <a href="https://github.com/Arktosum" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
