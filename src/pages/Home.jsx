@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GitHubCalendar } from 'react-github-calendar';
-import { Terminal, ChevronDown, Rocket, ExternalLink, Code2 } from 'lucide-react';
+import { Terminal, ChevronDown, Rocket, ExternalLink, Code2, Cpu } from 'lucide-react';
 
 const Github = ({ size = 24, className = '' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -75,6 +75,115 @@ export const Home = () => {
                 <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
               </span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* About the Engineer - Bento Grid */}
+      <section id="about" className="py-20 px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <h2 className="text-3xl font-serif font-bold mb-4">Engineering Philosophy</h2>
+          <p className="text-gray-400">How I approach complex systems.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-on-scroll opacity-0">
+          {/* Philosophy Card - span 2 */}
+          <div className="md:col-span-2 glass p-8 rounded-3xl relative overflow-hidden group border border-white/5 hover:border-primary/30 transition-colors duration-500">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-3xl rounded-full group-hover:bg-primary/20 transition-colors duration-700"></div>
+            <h3 className="text-2xl font-bold mb-8 flex items-center gap-2 relative z-10"><Cpu className="text-primary" /> First Principles</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 relative z-10">
+              <div>
+                <h4 className="font-semibold text-lg text-white mb-2 border-b border-white/10 pb-2 inline-block">Understand the Abstraction</h4>
+                <p className="text-gray-400 text-sm leading-relaxed mt-2">If I don't understand the underlying math or logic, I build the engine from scratch. Black boxes are for production, glass boxes are for learning.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg text-white mb-2 border-b border-white/10 pb-2 inline-block">Performance as a Feature</h4>
+                <p className="text-gray-400 text-sm leading-relaxed mt-2">Whether it's bypassing Python loops for raw GPU tensor operations or managing memory in C, optimization isn't an afterthought.</p>
+              </div>
+              <div className="sm:col-span-2">
+                <h4 className="font-semibold text-lg text-white mb-2 border-b border-white/10 pb-2 inline-block">Systems Thinking</h4>
+                <p className="text-gray-400 text-sm leading-relaxed mt-2 max-w-2xl">A project isn't just a frontend or a model. It's the entire pipeline—from the database architecture to the CI/CD deployment and memory optimization.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* The "Now" Card - span 1 */}
+          <div className="glass p-8 rounded-3xl flex flex-col relative overflow-hidden border border-white/5 hover:border-accent/30 transition-colors duration-500">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-xl font-bold">Status: <span className="text-white">Now</span></h3>
+              <div className="flex items-center justify-center w-4 h-4">
+                <div className="absolute w-3 h-3 bg-green-500 rounded-full animate-ping opacity-75"></div>
+                <div className="relative w-2 h-2 bg-green-500 rounded-full"></div>
+              </div>
+            </div>
+            <div className="space-y-6 flex-1">
+              <div>
+                <span className="text-[10px] text-primary font-bold uppercase tracking-widest border border-primary/30 px-2 py-0.5 rounded-full mb-2 inline-block">Building</span>
+                <p className="text-sm text-gray-300">Local DeepSeek R1 Clone</p>
+              </div>
+              <div>
+                <span className="text-[10px] text-accent font-bold uppercase tracking-widest border border-accent/30 px-2 py-0.5 rounded-full mb-2 inline-block">Reading</span>
+                <p className="text-sm text-gray-300">CUDA C Programming Guide</p>
+              </div>
+              <div>
+                <span className="text-[10px] text-purple-400 font-bold uppercase tracking-widest border border-purple-400/30 px-2 py-0.5 rounded-full mb-2 inline-block">Obsessing Over</span>
+                <p className="text-sm text-gray-300">Latent Space Visualizations</p>
+              </div>
+            </div>
+          </div>
+
+          {/* IDE Code Window - span 2 */}
+          <div className="md:col-span-2 glass rounded-3xl overflow-hidden border border-white/10 flex flex-col hover:border-primary/30 transition-colors duration-500">
+            <div className="bg-black/50 px-4 py-3 flex items-center gap-2 border-b border-white/5">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+              </div>
+              <span className="text-xs text-gray-500 ml-4 font-mono select-none">rubiks_env.py — Arktosum</span>
+            </div>
+            <div className="p-6 overflow-x-auto bg-[#0d0d12] flex-1">
+              <pre className="text-[13px] md:text-sm font-mono leading-relaxed">
+                <span className="text-[#c678dd]">def</span> <span className="text-[#61afef]">gather_state</span><span className="text-gray-300">(env, actions):</span><br/>
+                <span className="text-[#5c6370] italic">    """Bypassing Python loops for raw GPU tensor operations."""</span><br/>
+                <span className="text-gray-300">    B = env.batch_size</span><br/>
+                <span className="text-gray-300">    idx = actions.</span><span className="text-[#56b6c2]">view</span><span className="text-gray-300">(B, </span><span className="text-[#d19a66]">1</span><span className="text-gray-300">, </span><span className="text-[#d19a66]">1</span><span className="text-gray-300">).</span><span className="text-[#56b6c2]">expand</span><span className="text-gray-300">(B, </span><span className="text-[#d19a66]">1</span><span className="text-gray-300">, env.state_dim)</span><br/>
+                <span className="text-[#5c6370] italic">    # Massively parallel physics step</span><br/>
+                <span className="text-gray-300">    next_state = torch.</span><span className="text-[#56b6c2]">gather</span><span className="text-gray-300">(env.transitions, </span><span className="text-[#d19a66]">dim</span><span className="text-gray-300">=</span><span className="text-[#d19a66]">1</span><span className="text-gray-300">, </span><span className="text-[#d19a66]">index</span><span className="text-gray-300">=idx)</span><br/>
+                <span className="text-gray-300">    rewards = </span><span className="text-[#61afef]">compute_rewards_vectorized</span><span className="text-gray-300">(next_state)</span><br/>
+                <span className="text-[#c678dd]">    return</span><span className="text-gray-300"> next_state, rewards</span>
+              </pre>
+            </div>
+          </div>
+
+          {/* Tech Stack Visual - span 1 */}
+          <div className="glass p-8 rounded-3xl flex flex-col items-center justify-center relative overflow-hidden group border border-white/5 hover:border-purple-500/30 transition-colors duration-500">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.1)_0,transparent_70%)] group-hover:opacity-100 opacity-50 transition-opacity duration-700"></div>
+            <h3 className="text-sm font-semibold tracking-widest uppercase mb-8 relative z-10 text-gray-400 group-hover:text-white transition-colors">Core Arsenal</h3>
+            <div className="relative w-full h-full min-h-[160px] flex items-center justify-center mt-4">
+              <div className="absolute w-16 h-16 rounded-full glass flex items-center justify-center z-20 shadow-[0_0_20px_rgba(147,51,234,0.3)] group-hover:shadow-[0_0_30px_rgba(147,51,234,0.6)] transition-all duration-700">
+                <span className="font-bold text-white text-sm">AI</span>
+              </div>
+              <div className="absolute -top-4 -left-2 w-12 h-12 rounded-full bg-[#1a1a2e] border border-white/10 flex items-center justify-center z-10 transition-transform duration-700 group-hover:-translate-y-4 group-hover:-translate-x-4">
+                <span className="text-[10px] text-gray-400 font-medium">PyTorch</span>
+              </div>
+              <div className="absolute -top-2 right-0 w-12 h-12 rounded-full bg-[#1a1a2e] border border-white/10 flex items-center justify-center z-10 transition-transform duration-700 group-hover:-translate-y-2 group-hover:translate-x-4">
+                <span className="text-[10px] text-gray-400 font-medium">Python</span>
+              </div>
+              <div className="absolute bottom-0 -left-2 w-12 h-12 rounded-full bg-[#1a1a2e] border border-white/10 flex items-center justify-center z-10 transition-transform duration-700 group-hover:translate-y-4 group-hover:-translate-x-2">
+                <span className="text-[10px] text-gray-400 font-medium">React</span>
+              </div>
+              <div className="absolute -bottom-2 right-2 w-12 h-12 rounded-full bg-[#1a1a2e] border border-white/10 flex items-center justify-center z-10 transition-transform duration-700 group-hover:translate-y-4 group-hover:translate-x-4">
+                <span className="text-[10px] text-gray-400 font-medium">C/C++</span>
+              </div>
+              {/* Lines using inline SVG */}
+              <svg className="absolute inset-0 w-full h-full -z-0 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">
+                <line x1="50%" y1="50%" x2="25%" y2="20%" stroke="currentColor" className="text-purple-400" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="50%" y1="50%" x2="75%" y2="25%" stroke="currentColor" className="text-purple-400" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="50%" y1="50%" x2="30%" y2="80%" stroke="currentColor" className="text-purple-400" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="50%" y1="50%" x2="70%" y2="75%" stroke="currentColor" className="text-purple-400" strokeWidth="1" strokeDasharray="4 4" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
